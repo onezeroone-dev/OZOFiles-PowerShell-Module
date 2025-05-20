@@ -1,5 +1,5 @@
 # Get-OZOFileToBase64
-This function is part of the [OZOFiles PowerShell Module](https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/README.md).
+This function is part of the [OZOFiles PowerShell Module](../README.md).
 
 ## Description
 Returns a Base-64 string representing a valid file, or "File not found" if the file does not exist or cannot be read.

@@ -13,10 +13,10 @@ Class OZODirectorySummary {
     [System.Collections.Generic.List[String]] $objectSIDs = @()
     # METHODS
     # Constructor method
-    OZODirectorySummary($longLength,$Path) {
+    OZODirectorySummary($LongLength,$Path) {
         # Set properties
         $this.longLength = $longLength
-        $this.Path   = $Path
+        $this.Path       = $Path
         # Call ValidateEnvironment to set Validates
         If ($this.ValidateEnvironment() -eq $true) {
             # Path is valid; get directory summary
@@ -68,7 +68,7 @@ Class OZODirectorySummary {
                 # Add the length of this item to totalSizeBytes
                 $this.totalSizeBytes = $this.totalSizeBytes + $childItem.Length
                 # Determine the length of this item is greater than or equal to the long path length
-                If ($childItem.FullName.Length -ge $this.Length) {
+                If ($childItem.FullName.Length -ge $this.longLength) {
                     # Item length is greater than or equal to the long length; add to long paths list
                     $this.longPaths.Add($childItem)
                 }
@@ -157,7 +157,7 @@ Function Get-OZODirectorySummary {
         [Parameter(Mandatory=$false,HelpMessage="Number of characters in a long path")][Int32]$LongLength = 256,
         [Parameter(Mandatory=$true,HelpMessage="Path to inspect")][String]$Path
     )
-    return [OZODirectorySummary]::new($longLength,$Path)
+    return [OZODirectorySummary]::new($LongLength,$Path)
 }
 
 Function Get-OZOFileToBase64 {

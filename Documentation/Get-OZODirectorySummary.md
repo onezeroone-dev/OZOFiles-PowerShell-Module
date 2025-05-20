@@ -1,5 +1,5 @@
 # Get-OZODirectorySummary
-This function is part of the [OZOFiles PowerShell Module](https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/README.md).
+This function is part of the [OZOFiles PowerShell Module](../README.md).
 
 ## Description
 Returns an OZODirectorySummary object.
@@ -15,7 +15,18 @@ Get-OZODirectorySummary
 |`Path`|The path to inspect.|
 
 ## Examples
+```powershell
+Get-OZODirectorySummary -Path (Join-Path -Path $Env:USERPROFILE -ChildPath "Downloads")
 
+Validates            : True
+newestChildWriteTime : 5/19/2025 13:43:51
+longLength           : 256
+totalSizeBytes       : 4280832613
+Path                 : C:\Users\aliev\Downloads
+longPaths            : {}
+problemPaths         : {}
+objectSIDs           : {S-1-5-18, S-1-5-32-544, S-1-5-21-1004336348-1177238915-682003330-1191}
+```
 
 ## Outputs
 `PSCustomOBject`

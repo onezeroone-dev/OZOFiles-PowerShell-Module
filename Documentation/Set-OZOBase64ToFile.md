@@ -1,5 +1,5 @@
 # Set-OZOBase64ToFile
-This function is part of the [OZOFiles PowerShell Module](https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/README.md).
+This function is part of the [OZOFiles PowerShell Module](../README.md).
 
 ## Description
 Writes a base-64 string to disk as a file. Returns TRUE on success and FALSE on failure.

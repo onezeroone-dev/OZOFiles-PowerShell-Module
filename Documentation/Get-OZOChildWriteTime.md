@@ -1,5 +1,5 @@
 # Get-OZOChildWriteTime
-This function is part of the [OZOFiles PowerShell Module](https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/README.md).
+This function is part of the [OZOFiles PowerShell Module](../README.md).
 
 ## Description
 Returns the newest or oldest write time for all files within a given path. Returns the newest write time when executed with no parameters.

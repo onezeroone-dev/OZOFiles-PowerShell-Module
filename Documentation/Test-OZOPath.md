@@ -1,5 +1,5 @@
 # Test-OZOPath
-This function is part of the [OZOFiles PowerShell Module](https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/README.md).
+This function is part of the [OZOFiles PowerShell Module](../README.md).
 
 ## Description
 Determines if a path exists and is readable. Optionally tests if the path is writable.

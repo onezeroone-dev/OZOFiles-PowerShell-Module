@@ -1,5 +1,5 @@
 # OZODirectorySummary Class
-This class is part of the [OZOFiles](../README.md) PowerShell Module. Calling the `Get-OZODirectorySummary` function returns an object of the `OZODirectorySummary` class.
+This class is part of the [OZOFiles PowerShell Module](../README.md). Calling the `Get-OZODirectorySummary` function returns an object of the `OZODirectorySummary` class.
 
 ```
 + $Validates:Boolean             = $true
