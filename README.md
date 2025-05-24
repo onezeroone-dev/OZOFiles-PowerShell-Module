@@ -24,3 +24,6 @@ Import-Module OZOFiles
 ## Classes
 
 - [OZODirectorySummary](Documentation/OZODirectorySummary.md)
+
+## Acknowledgements
+Special thanks to my employer, [Sonic Healthcare USA](https://sonichealthcareusa.com), who supports the growth of my PowerShell skillset and enables me to contribute portions of my work product to the PowerShell community.
