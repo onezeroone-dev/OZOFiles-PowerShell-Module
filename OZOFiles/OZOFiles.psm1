@@ -160,6 +160,50 @@ Function Get-OZODirectorySummary {
     return [OZODirectorySummary]::new($LongLength,$Path)
 }
 
+Function Get-OZOFileIsLocked {
+    <#
+        .SYNOPSIS
+        See description.
+        .DESCRIPTION
+        Returns True if the Path is locked or False if the path is not locked, does not exist, is not accessible, is read-only, or is a directory.
+        .PARAMETER Path
+        The path of the file to inspect.
+        .EXAMPLE
+        Get-OZOFileIsLocked -Path "C:\Temp\test.txt"
+        False
+        .LINK
+        https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/Documentation/Get-OZOFileIsLocked.md
+    #>
+    # Parameters
+    [CmdletBinding()] Param(
+        [Parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)][Alias("FullName","PSPath")][String[]]$Path
+    )
+    # Try to get the item
+    Try {
+        $Item = (Get-Item -Path $Path -ErrorAction Stop)
+        # Success; determine if Item is a file
+        If ($Item.PSIsContainer -eq $false) {
+            # Item is a file; try to open it
+            Try {
+                $fileStream = [System.IO.File]::Open($Item.FullName,"Open","Write")
+                $fileStream.Close()
+                $fileStream.Dispose()
+                # Success
+                return $false
+            } Catch {
+                # Failure
+                return $true
+            }
+        } Else {
+            # Item is a directory
+            return $false
+        }
+    } Catch {
+        # Failure
+        return $false
+    }
+}
+
 Function Get-OZOFileToBase64 {
     <#
         .SYNOPSIS
@@ -235,8 +279,11 @@ Function Test-OZOPath {
         .PARAMETER Writable
         Determines if the path is writable. Returns TRUE if the path is writable and otherwise returns FALSE.
         .EXAMPLE
-        Test-OZOPath -Path .\README.md
+        Test-OZOPath -Path "C:\Windows\notepad.exe"
         True
+        .EXAMPLE
+        Test-OZOPath -Path "C:\Windows\notepad.exe" -Writable
+        False
         .LINK
         https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/Documentation/Test-OZOPath.md
     #>
@@ -288,4 +335,4 @@ Function Test-OZOPath {
     }
 }
 
-Export-ModuleMember -Function Get-OZOChildWriteTime,Get-OZODirectorySummary,Get-OZOFileToBase64,Set-OZOBase64ToFile,Test-OZOPath
+Export-ModuleMember -Function Get-OZOChildWriteTime,Get-OZODirectorySummary,Get-OZOFileIsLocked,Get-OZOFileToBase64,Set-OZOBase64ToFile,Test-OZOPath

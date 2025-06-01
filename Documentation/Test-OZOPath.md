@@ -7,19 +7,27 @@ Determines if a path exists and is readable. Optionally tests if the path is wri
 ## Syntax
 ```
 Test-OZOPath
-    -Path <String>
+    -Path     <String>
+    -Writable <Switch>
 ```
 
 ## Parameters
 |Parameter|Description|
 |---------|-----------|
-|`Path`|The path to test. Returns TRUE if the path exists and is readable and otherwise returns FALSE.|
-|`Writable`|Determines if the path is writable. Returns TRUE if the path is writable and otherwise returns FALSE.|
+|`Path`|The path to test. Returns _True_ if the path exists and is readable and otherwise returns _False_.|
+|`Writable`|Determines if the path is writable. Returns _True_ if the path is writable and otherwise returns _False_.|
 
 ## Examples
+### Example 1
 ```powershell
-Test-OZOPath -Path ".\README.md"
+Test-OZOPath -Path "C:\Windows\notepad.exe"
 True
+```
+
+### Example 2
+```powershell
+Test-OZOPath -Path "C:\Windows\notepad.exe" -Writable
+False
 ```
 
 ## Outputs

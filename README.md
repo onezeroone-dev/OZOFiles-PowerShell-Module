@@ -17,6 +17,8 @@ Import-Module OZOFiles
 ## Functions
 
 - [Get-OZOChildWriteTime](Documentation/Get-OZOChildWriteTime.md)
+- [Get-OZODirectorySummary](Documentation/Get-OZODirectorySummary.md)
+- [Get-OZOFileIsLocked](Documentation/Get-OZOFileIsLocked.md)
 - [Get-OZOFileToBase64](Documentation/Get-OZOFileToBase64.md)
 - [Set-OZOBase64ToFile](Documentation/Set-OZOBase64tofile.md)
 - [Test-OZOPath](Documentation/Test-OZOPath.md)
@@ -24,3 +26,9 @@ Import-Module OZOFiles
 ## Classes
 
 - [OZODirectorySummary](Documentation/OZODirectorySummary.md)
+
+## License
+This module is licensed under the [GNU General Public License (GPL) version 2.0](LICENSE).
+
+## Acknowledgements
+Special thanks to my employer, [Sonic Healthcare USA](https://sonichealthcareusa.com), who supports the growth of my PowerShell skillset and enables me to contribute portions of my work product to the PowerShell community.
