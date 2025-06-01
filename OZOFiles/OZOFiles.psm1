@@ -182,17 +182,17 @@ Function Get-OZOFileIsLocked {
     Try {
         $Item = (Get-Item -Path $Path -ErrorAction Stop)
         # Success; determine if Item is a file
-        If ($Item.PSContainer = $true) {
+        If ($Item.PSIsContainer -eq $false) {
             # Item is a file; try to open it
             Try {
                 $fileStream = [System.IO.File]::Open($Item.FullName,"Open","Write")
                 $fileStream.Close()
                 $fileStream.Dispose()
                 # Success
-                return $true
+                return $false
             } Catch {
                 # Failure
-                return $false
+                return $true
             }
         } Else {
             # Item is a directory
@@ -279,8 +279,11 @@ Function Test-OZOPath {
         .PARAMETER Writable
         Determines if the path is writable. Returns TRUE if the path is writable and otherwise returns FALSE.
         .EXAMPLE
-        Test-OZOPath -Path .\README.md
+        Test-OZOPath -Path "C:\Windows\notepad.exe"
         True
+        .EXAMPLE
+        Test-OZOPath -Path "C:\Windows\notepad.exe" -Writable
+        False
         .LINK
         https://github.com/onezeroone-dev/OZOFiles-PowerShell-Module/blob/main/Documentation/Test-OZOPath.md
     #>

@@ -1,4 +1,4 @@
-# Get-OZOFileToBase64
+# Get-OZOFileIsLocked
 This function is part of the [OZOFiles PowerShell Module](../README.md).
 
 ## Description
